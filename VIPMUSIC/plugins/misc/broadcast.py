@@ -20,7 +20,7 @@ from config import adminlist
 IS_BROADCASTING = False
 
 
-@app.on_message(filters.command(["broadcast", "gcast"]) & SUDOERS)
+@app.on_message(filters.command(["اذاعة", "اذاعه"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING
@@ -31,14 +31,14 @@ async def braodcast_message(client, message, _):
         if len(message.command) < 2:
             return await message.reply_text(_["broad_2"])
         query = message.text.split(None, 1)[1]
-        if "-pin" in query:
-            query = query.replace("-pin", "")
+        if "بالتثبيت" in query:
+            query = query.replace("بالتثبيت", "")
         if "-nobot" in query:
             query = query.replace("-nobot", "")
         if "-pinloud" in query:
             query = query.replace("-pinloud", "")
-        if "-assistant" in query:
-            query = query.replace("-assistant", "")
+        if "بالمساعد" in query:
+            query = query.replace("بالمساعد", "")
         if "-user" in query:
             query = query.replace("-user", "")
         if query == "":
