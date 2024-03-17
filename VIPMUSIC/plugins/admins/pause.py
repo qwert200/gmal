@@ -7,7 +7,7 @@ from VIPMUSIC.utils.decorators import AdminRightsCheck
 from VIPMUSIC.utils.inline import close_markup
 from config import BANNED_USERS
 
-@app.on_message(filters.command(["pause", "cpause"]) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["وقف", "pause","اسكت","ايقاف مؤقت"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def pause_admin(cli, message: Message, _, chat_id):
     if not await is_music_playing(chat_id):
@@ -17,8 +17,8 @@ async def pause_admin(cli, message: Message, _, chat_id):
     
     buttons = [
         [
-            InlineKeyboardButton(text="ʀᴇsᴜᴍᴇ", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="ʀᴇᴘʟᴀʏ", callback_data=f"ADMIN Replay|{chat_id}"),
+            InlineKeyboardButton(text="𝙍𝙚𝙨𝙪𝙢𝙚", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="𝙍𝙚𝙥𝙡𝙖𝙮", callback_data=f"ADMIN Replay|{chat_id}"),
         ],
     ]
     
