@@ -8,7 +8,7 @@ from ..logging import LOGGER
 
 class VIP(Client):
     def __init__(self):
-        LOGGER(__name__).info(f"Starting Bot...")
+        LOGGER(__name__).info(f"بدء تشغيل البوت بنجاح... ")
         super().__init__(
             name="VIPMUSIC",
             api_id=config.API_ID,
@@ -28,26 +28,26 @@ class VIP(Client):
         try:
             await self.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"<u><b>» {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b><u>\n\nɪᴅ : <code>{self.id}</code>\nɴᴀᴍᴇ : {self.name}\nᴜsᴇʀɴᴀᴍᴇ : @{self.username}",
+                text=f"<u><b>» {self.mention} تم تشغيل بوت :</b><u>\n\nايدي البوت : <code>{self.id}</code>\nاسم البوت : {self.name}\nيوزر البوت : @{self.username}",
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
-                "Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel."
+                "قم برفع البوت مشرف في الكروب او القناة، وقم بتشغيل مكالمه صوتيه. "
             )
             
         except Exception as ex:
             LOGGER(__name__).error(
-                f"Bot has failed to access the log group/channel.\n  Reason : {type(ex).__name__}."
+                f"لا يستطيع البوت من الوصول للمجموعه او القناة.\n  بسبب : {type(ex).__name__}."
             )
             
 
         a = await self.get_chat_member(config.LOGGER_ID, self.id)
         if a.status != ChatMemberStatus.ADMINISTRATOR:
             LOGGER(__name__).error(
-                "Please promote your bot as an admin in your log group/channel."
+                "من فضلك قم برفع البوت مشرف في الكروب والقناة وتأكد من تشغيل المكالمه الصوتيه."
             )
             
-        LOGGER(__name__).info(f"Music Bot Started as {self.name}")
+        LOGGER(__name__).info(f"بدء تشغيل البوت {self.name}")
 
     async def stop(self):
         await super().stop()
