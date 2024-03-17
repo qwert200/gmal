@@ -25,7 +25,7 @@ async def _carbon(client, message):
         return await message.reply_text("🚦قم بالرد على الرساله")
     text = await message.reply("🚦انتظر قليلا... ")
     carbon = await make_carbon(replied.text or replied.caption)
-    await text.edit("🚦جاࢪي الرفع... ")
+    await text.edit("🚦جاࢪي الطبع... ")
     await message.reply_photo(carbon)
     await text.delete()
     carbon.close()
