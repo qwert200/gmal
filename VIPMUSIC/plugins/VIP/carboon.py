@@ -15,17 +15,17 @@ async def make_carbon(code):
 
 
 
-@app.on_message(filters.command("carbon"))
+@app.on_message(filters.command(["طباعه","طباعة"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
 async def _carbon(client, message):
     replied = message.reply_to_message
     if not replied:
-        await message.reply_text("**ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴀ ᴄᴀʀʙᴏɴ.**")
+        await message.reply_text("🚦قم بالرد على الرساله")
         return
     if not (replied.text or replied.caption):
-        return await message.reply_text("**ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴀ ᴄᴀʀʙᴏɴ.**")
-    text = await message.reply("Processing...")
+        return await message.reply_text("🚦قم بالرد على الرساله")
+    text = await message.reply("🚦انتظر قليلا... ")
     carbon = await make_carbon(replied.text or replied.caption)
-    await text.edit("**ᴜᴘʟᴏᴀᴅɪɴɢ...**")
+    await text.edit("🚦جاࢪي الرفع... ")
     await message.reply_photo(carbon)
     await text.delete()
     carbon.close()
