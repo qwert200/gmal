@@ -43,7 +43,7 @@ SPAM_THRESHOLD = 2
 SPAM_WINDOW_SECONDS = 5
 
 @app.on_message(
-   filters.command(["play", "vplay", "cplay", "cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce"] ,prefixes=["/", "!", "%", ",", ".", "@", "#"])
+   filters.command(["play", "vplay", "تشغيل", "شغل", "playforce", "vplayforce", "تشغيل مخصص"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) 
             
     & filters.group
     & ~BANNED_USERS
@@ -91,8 +91,8 @@ async def play_commnd(
     slider = None
     plist_type = None
     spotify = None
-    user_id = message.from_user.id
-    user_name = message.from_user.first_name
+    user_id = message.from_user.id if message.from_user else "1121532100"
+    user_name = message.from_user.first_name if message.from_user else "None"
 
     audio_telegram = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
