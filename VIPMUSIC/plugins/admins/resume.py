@@ -9,7 +9,7 @@ from VIPMUSIC.utils.inline import close_markup
 from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["resume", "cresume"]) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["resume", "استئناف","كمل"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def resume_com(cli, message: Message, _, chat_id):
     if await is_music_playing(chat_id):
@@ -20,15 +20,15 @@ async def resume_com(cli, message: Message, _, chat_id):
         [
             
             InlineKeyboardButton(
-                text="sᴋɪᴘ", callback_data=f"ADMIN Skip|{chat_id}"
+                text="𝙨𝙠𝙞𝙥", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="sᴛᴏᴘ", callback_data=f"ADMIN Stop|{chat_id}"
+                text="𝙨𝙩𝙤𝙥", callback_data=f"ADMIN Stop|{chat_id}"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="ᴘᴀᴜsᴇ",
+                text="𝙋𝙖𝙪𝙨𝙚",
                 callback_data=f"ADMIN Pause|{chat_id}",
             ),
         ]
