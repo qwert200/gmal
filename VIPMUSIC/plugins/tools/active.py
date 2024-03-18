@@ -24,9 +24,9 @@ def ordinal(n):
     return str(n) + suffix
 
 
-@app.on_message(filters.command(["activevc", "activevoice"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
+@app.on_message(filters.command(["activevc", "activevoice","المكالمات الصوتيه], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def activevc(_, message: Message):
-    mystic = await message.reply_text("» ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs ʟɪsᴛ...")
+    mystic = await message.reply_text("🚦جاࢪي البحث غن مكالمات صوتيه نشطه... ")
     served_chats = await get_active_chats()
     text = ""
     j = 0
@@ -45,24 +45,24 @@ async def activevc(_, message: Message):
                 text += f"<b>{j + 1}.</b> <a href=https://t.me/{user}>{unidecode(title).upper()}</a> [<code>{x}</code>]\n"
             else:
                 text += f"<b>{j + 1}.</b> {unidecode(title).upper()} [<code>{x}</code>]\n"
-            button_text = f"๏ ᴊᴏɪɴ {ordinal(j + 1)} ɢʀᴏᴜᴘ ๏"
+            button_text = f"๏ القناة {ordinal(j + 1)} ๏"
             buttons.append([InlineKeyboardButton(button_text, url=invite_link)])
             j += 1
         except:
             continue
     if not text:
-        await mystic.edit_text(f"» ɴᴏ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs ᴏɴ {app.mention}.")
+        await mystic.edit_text(f"🚦لا توجد مكالمات صوتيه نشطه {app.mention}.")
     else:
         await mystic.edit_text(
-            f"<b>» ʟɪsᴛ ᴏғ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs :</b>\n\n{text}",
+            f"<b>🚦المكالمات الصوتيه النشطه :</b>\n\n{text}",
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True,
         )
 
 
-@app.on_message(filters.command(["activev", "activevideo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
+@app.on_message(filters.command(["activev", "activevideo","المكالمات المرئيه], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def activevi_(_, message: Message):
-    mystic = await message.reply_text("» ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛs ʟɪsᴛ...")
+    mystic = await message.reply_text("🚦جاࢪي البحث عن مكالمات مرئيه نشطه... ")
     served_chats = await get_active_video_chats()
     text = ""
     j = 0
@@ -81,16 +81,16 @@ async def activevi_(_, message: Message):
                 text += f"<b>{j + 1}.</b> <a href=https://t.me/{user}>{unidecode(title).upper()}</a> [<code>{x}</code>]\n"
             else:
                 text += f"<b>{j + 1}.</b> {unidecode(title).upper()} [<code>{x}</code>]\n"
-            button_text = f"๏ ᴊᴏɪɴ {ordinal(j + 1)} ɢʀᴏᴜᴘ ๏"
+            button_text = f"๏ القناه {ordinal(j + 1)} ๏"
             buttons.append([InlineKeyboardButton(button_text, url=invite_link)])
             j += 1
         except:
             continue
     if not text:
-        await mystic.edit_text(f"» ɴᴏ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛs ᴏɴ {app.mention}.")
+        await mystic.edit_text(f"🚦لا توجد مكالمات مرئيه نشطه {app.mention}.")
     else:
         await mystic.edit_text(
-            f"<b>» ʟɪsᴛ ᴏғ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛs :</b>\n\n{text}",
+            f"<b>🚦المكالمات المرئيه النشطه :</b>\n\n{text}",
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True,
         )
