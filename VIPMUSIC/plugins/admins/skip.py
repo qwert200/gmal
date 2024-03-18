@@ -10,6 +10,7 @@ from VIPMUSIC.utils.decorators import AdminRightsCheck
 from VIPMUSIC.utils.inline import close_markup, stream_markup
 from VIPMUSIC.utils.stream.autoclear import auto_clean
 from VIPMUSIC.utils.thumbnails import get_thumb
+from VIPMUSIC.utils.thumbnailsbak import get_thumb
 from config import BANNED_USERS
 
 
