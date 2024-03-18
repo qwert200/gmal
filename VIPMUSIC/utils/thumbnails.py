@@ -79,14 +79,14 @@ async def get_thumb(videoid):
         bg_logo = bg_contra.enhance(1.1)
         logox = ImageOps.expand(bg_logo, border=7, fill=f"{border}")
         background = changeImageSize(1280, 720, logox)
-        # image2 = image1.convert("RGBA")
-        # background = image2.filter(filter=ImageFilter.BoxBlur(1))
-        #enhancer = ImageEnhance.Brightness(background)
-        #background = enhancer.enhance(0.9)
-        #draw = ImageDraw.Draw(background)
-        #arial = ImageFont.truetype("VIPMUSIC/assets/font2.ttf", 30)
-        #font = ImageFont.truetype("VIPMUSIC/assets/font.ttf", 30)
-        # draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
+        image2 = image1.convert("RGBA")
+        background = image2.filter(filter=ImageFilter.BoxBlur(1))
+        enhancer = ImageEnhance.Brightness(background)
+        background = enhancer.enhance(0.9)
+        draw = ImageDraw.Draw(background)
+        arial = ImageFont.truetype("VIPMUSIC/assets/font2.ttf", 30)
+        font = ImageFont.truetype("VIPMUSIC/assets/font.ttf", 30)
+        draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
         """
         draw.text(
             (1, 1),
