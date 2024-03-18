@@ -30,7 +30,7 @@ SPAM_WINDOW_SECONDS = 5
 
 # ------------------------------------------------------------------------------- 
 
-@app.on_message(filters.command("song"))
+@app.on_message(filters.command(["song","تحميل"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
 async def download_song(_, message):
     user_id = message.from_user.id
     current_time = time()
@@ -54,7 +54,7 @@ async def download_song(_, message):
 
     query = " ".join(message.command[1:])  
     print(query)
-    m = await message.reply("**🔄 sᴇᴀʀᴄʜɪɴɢ... **")
+    m = await message.reply("**🚦انتظر قليلا... **")
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -71,10 +71,10 @@ async def download_song(_, message):
         channel_name = results[0]["channel"]
 
     except Exception as e:
-        await m.edit("**⚠️ ɴᴏ ʀᴇsᴜʟᴛs ᴡᴇʀᴇ ғᴏᴜɴᴅ. ᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜ ᴛʏᴘᴇᴅ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ sᴏɴɢ ɴᴀᴍᴇ**")
+        await m.edit("**🚦لم يتم العثور على نتائج متطابقه حاول مره اخرى...**")
         print(str(e))
         return
-    await m.edit("**📥 ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ...**")
+    await m.edit("**🚦جاࢪي الرفع...**")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -84,13 +84,13 @@ async def download_song(_, message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        await m.edit("**📤 ᴜᴘʟᴏᴀᴅɪɴɢ...**")
+        await m.edit("**🚦جاࢪي التحميل...**")
 
         await message.reply_audio(
             audio_file,
             thumb=thumb_name,
             title=title,
-            caption=f"{title}\nRᴇǫᴜᴇsᴛᴇᴅ ʙʏ ➪{message.from_user.mention}\nVɪᴇᴡs➪ {views}\nCʜᴀɴɴᴇʟ➪ {channel_name}",
+            caption=f"{title}\n🚦تم البحث بواسطة ➪{message.from_user.mention}\n🚦التعليقات ➪{views}\n🚦القناة ➪{channel_name}",
             duration=dur
         )
         await m.delete()
