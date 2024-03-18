@@ -4,8 +4,9 @@ import textwrap
 
 import aiofiles
 import aiohttp
-from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
-                 ImageFont, ImageOps)
+from PIL import Image, ImageDraw, ImageEnhance
+from PIL import ImageFilter, ImageFont, ImageOps
+
 from youtubesearchpython.__future__ import VideosSearch
 from VIPMUSIC import app
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
