@@ -13,7 +13,7 @@ from VIPMUSIC.utils.exceptions import AssistantErr
 from VIPMUSIC.utils.inline import aq_markup, close_markup, stream_markup
 from VIPMUSIC.utils.pastebin import VIPBin
 from VIPMUSIC.utils.stream.queue import put_queue, put_queue_index
-
+from VIPMUSIC.utils.thumbnails import get_thumb
 
 async def stream(
     _,
