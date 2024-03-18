@@ -36,7 +36,6 @@ from VIPMUSIC.utils.formatters import check_duration, seconds_to_min, speed_conv
 from VIPMUSIC.utils.inline.play import stream_markup
 from VIPMUSIC.utils.stream.autoclear import auto_clean
 from VIPMUSIC.utils.thumbnails import get_thumb
-from VIPMUSIC.utils.thumbnailsbak import get_thumb
 from strings import get_string
 
 autoend = {}
