@@ -451,7 +451,7 @@ async def add_playlist(client, message: Message, _):
             ]
         )
         await addin.delete()
-        return await message.reply_text="**🚦تم اضافتها لقائمة التشغيل بنجاح.⚡**\n\n**🚦للتأكد اضغط على » /playlist**\n\n**🚦لحذفها اضغط على » /delplaylist**\n\n **🚦لتشغيلها اضغط على » /play**", reply_markup=keyboardes)
+        return await message.reply_text(text="**🚦تم اضافتها لقائمة التشغيل بنجاح.⚡**\n\n**🚦للتأكد اضغط على » /playlist**\n\n**🚦لحذفها اضغط على » /delplaylist**\n\n **🚦لتشغيلها اضغط على » /play**", reply_markup=keyboardes)
         pass
 
     # Check if the provided input is a YouTube video link
