@@ -30,7 +30,7 @@ SPAM_WINDOW_SECONDS = 5
 
 # ------------------------------------------------------------------------------- 
 
-@app.on_message(filters.command(["song","تحميل"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) 
+@app.on_message(filters.command(["song","تحميل"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])) 
 async def download_song(_, message):
     user_id = message.from_user.id
     current_time = time()
