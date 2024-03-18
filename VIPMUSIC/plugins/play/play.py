@@ -45,7 +45,6 @@ SPAM_WINDOW_SECONDS = 5
 @app.on_message(
    filters.command(["play", "vplay", "تشغيل", "شغل", "playforce", "vplayforce", "تشغيل مخصص"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) 
             
-    & filters.group
     & ~BANNED_USERS
 )
 @PlayWrapper
