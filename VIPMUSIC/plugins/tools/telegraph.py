@@ -7,14 +7,14 @@ from PIL import Image, ImageEnhance
 from VIPMUSIC import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-@app.on_message(filters.reply & filters.command(["tgm", "telegraph"]))
+@app.on_message(filters.reply & filters.command(["tgm", "telegraph","تلجراف","جراف"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) 
 async def create_telegraph_link(client, message):
     try:
         if not message.reply_to_message:
             await message.reply_text("**Please reply to a message to create its Telegraph link.**")
             return
 
-        sent_message = await message.reply_text("**Processing...**")
+        sent_message = await message.reply_text("**🚦انتظر قليلا...**")
 
         if message.reply_to_message.photo:
             media = message.reply_to_message.photo
@@ -31,7 +31,7 @@ async def create_telegraph_link(client, message):
                 sticker_image.save("sticker_as_image.png")
                 media = "sticker_as_image.png"
         else:
-            await message.reply_text("**Unsupported media type. Please reply to an image or a sticker.**")
+            await message.reply_text("**🚦قم بالرد على صوره او فيديو ...**")
             return
 
         # Increase brightness
@@ -66,7 +66,7 @@ async def create_telegraph_link(client, message):
         await client.send_photo(
             message.chat.id,
             photo=brightened_file_path,
-            caption=f"**Here is your Telegraph link with increased brightness:**\n\n{button_url}\n\n**Made by @{app.username}**",
+            caption=f"**🚦تم صنع الرابط بنجاح:**\n\n{button_url}\n\n**🚦بواسطة بوت @{app.username}**",
             reply_markup=reply_markup,
         )
 
@@ -74,8 +74,8 @@ async def create_telegraph_link(client, message):
         await sent_message.delete()
 
     except Exception as e:
-        print(f"Failed to create Telegraph link: {e}")
-        await message.reply_text("**Failed to create Telegraph link. Please try again later.**")
+        print(f"🚦فشل في صنع رابط تلجراف: {e}")
+        await message.reply_text("**🚦فشل في صنع رابط تلجراف حاول مره اخرى**")
 
 async def convert_animated_sticker_to_video(input_file, output_file):
     command = f"ffmpeg -i {input_file} -vf 'fps=25,scale=320:-1:flags=lanczos' -c:v libx264 -crf 20 -pix_fmt yuv420p {output_file}"
