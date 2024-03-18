@@ -99,9 +99,9 @@ async def delete_playlist(chat_id: int, name: str) -> bool:
 
 
 # Command
-ADDPLAYLIST_COMMAND = ("addplaylist","اضافه")
-PLAYLIST_COMMAND = ("playlist","قائمة التشغيل")
-DELETEPLAYLIST_COMMAND = ("delplaylist","حذف")
+ADDPLAYLIST_COMMAND = ("addplaylist")
+PLAYLIST_COMMAND = ("playlist")
+DELETEPLAYLIST_COMMAND = ("delplaylist")
 
 
 @app.on_message(
