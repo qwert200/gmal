@@ -24,7 +24,7 @@ def ordinal(n):
     return str(n) + suffix
 
 
-@app.on_message(filters.command(["activevc", "activevoice","المكالمات الصوتيه], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
+@app.on_message(filters.command(["activevc", "activevoice","المكالمات الصوتيه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def activevc(_, message: Message):
     mystic = await message.reply_text("🚦جاࢪي البحث غن مكالمات صوتيه نشطه... ")
     served_chats = await get_active_chats()
@@ -60,7 +60,7 @@ async def activevc(_, message: Message):
         )
 
 
-@app.on_message(filters.command(["activev", "activevideo","المكالمات المرئيه], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
+@app.on_message(filters.command(["activev", "activevideo","المكالمات المرئيه"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def activevi_(_, message: Message):
     mystic = await message.reply_text("🚦جاࢪي البحث عن مكالمات مرئيه نشطه... ")
     served_chats = await get_active_video_chats()
