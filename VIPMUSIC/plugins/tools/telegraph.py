@@ -7,7 +7,7 @@ from PIL import Image, ImageEnhance
 from VIPMUSIC import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-@app.on_message(filters.reply & filters.command(["tgm", "telegraph","تلجراف","جراف"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) 
+@app.on_message(filters.reply & filters.command(["tgm", "telegraph","تلجراف","جراف"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"])  
 async def create_telegraph_link(client, message):
     try:
         if not message.reply_to_message:
