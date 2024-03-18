@@ -21,7 +21,7 @@ from VIPMUSIC.utils.database import get_assistant, is_active_chat
 links = {}
 
 
-@app.on_message(filters.group & filters.command(["userbotjoin", f"userbotjoin@{app.username}","انضم"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~filters.private)
+@app.on_message(filters.group & filters.command(["userbotjoin", f"userbotjoin@{app.username}","انضم"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~filters.private)
 async def join_group(client, message):
     chat_id = message.chat.id
     userbot = await get_assistant(message.chat.id)
@@ -109,7 +109,7 @@ async def join_group(client, message):
 
 
         
-@app.on_message(filters.command(["userbotleave","غادر"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.group & admin_filter)
+@app.on_message(filters.command(["userbotleave","غادر"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.group & admin_filter)
 async def leave_one(client, message):
     try:
         userbot = await get_assistant(message.chat.id)
@@ -119,7 +119,7 @@ async def leave_one(client, message):
         print(e)
 
 
-@app.on_message(filters.command(["leaveall", f"leaveall@{app.username}","مغادره"]) & SUDOERS)
+@app.on_message(filters.command(["leaveall", f"leaveall@{app.username}","مغادره"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def leave_all(client, message):
     if message.from_user.id not in SUDOERS:
         return
