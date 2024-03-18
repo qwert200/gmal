@@ -565,7 +565,8 @@ async def add_playlist(client, message: Message, _):
             )
             await m.delete()
             await message.reply_photo(thumbnail, caption="**🚦تم اضافتها لقائمة التشغيل بنجاح.⚡**\n\n**🚦للتأكد اضغط على » /playlist**\n\n**🚦لحذفها اضغط على » /delplaylist**\n\n **🚦لتشغيلها اضغط على » /play**", reply_markup=keyboard)
-            exceptKeyError:
+
+        except KeyError:
             return await message.reply_text("🚦اعمل تحديث للبوت.")
         except Exception as e:
             pass
