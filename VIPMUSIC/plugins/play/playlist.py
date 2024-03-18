@@ -676,7 +676,7 @@ async def add_playlist(client, CallbackQuery, _):
 @app.on_callback_query(filters.regex("add_playlist") & ~BANNED_USERS)
 @languageCB
 async def add_playlist(client, CallbackQuery, _):
-    await CallbackQuery.answer"🚦لاضافة شيء لقائمة التشغيل قم بكتابة ما تريد او وضع رابط الفيديو بعد /addplaylist او بعد اضافة. ", show_alert=True)
+    await CallbackQuery.answer("🚦لاضافة شيء لقائمة التشغيل قم بكتابة ما تريد او وضع رابط الفيديو بعد /addplaylist او بعد اضافة. ", show_alert=True)
     
 
 @app.on_callback_query(filters.regex("vip_playlist") & ~BANNED_USERS)
